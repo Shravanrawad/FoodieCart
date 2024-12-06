@@ -2,15 +2,18 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { addToCart } from '../redux/cartslice';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 function Itemcard({img, name, price, desc, rating, id}) {
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
  <div class="max-w-sm bg-white shadow-lg rounded-xl overflow-hidden relative cursor-pointer">
   
   <img 
+    onClick={() => navigate('/singleitem/' + id)} 
     class="w-full h-48 object-cover" 
     src={img}
     alt="Onion Pizza" 
